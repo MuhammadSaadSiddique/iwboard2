@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".signup.signup_user">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/back_color"
+        android:orientation="horizontal"
+        android:padding="5sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Intelligent White Board"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/login"
+        android:text="New User SignUp"
+        android:textColor="@color/back_color"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/email" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Select Role:"
+            android:textSize="30dp"
+            android:textStyle="bold"
+
+            />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student"
+                android:textSize="20dp"
+                android:textStyle="italic" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teacher"
+                android:textSize="20dp"
+                android:textStyle="italic" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/role"-->
+
+    <!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="32dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginEnd="32dp"-->
+    <!--        android:hint="Enter Role">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/edit_text_role"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:drawableLeft="@drawable/person"-->
+    <!--            android:layout_height="wrap_content" />-->
+
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter Password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/password" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cpass"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Confirm Password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_cpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/password" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@android:color/transparent"
+        android:padding="10sp"
+        android:text="Forgot Password?"
+        android:textColor="#AD000000"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btn_signup_user_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/back_color"
+        android:text="Next" />
+
+
+</LinearLayout>

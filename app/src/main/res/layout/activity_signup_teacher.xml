@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".signup.signup_user">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/back_color"
+        android:orientation="horizontal"
+        android:padding="5sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Intelligent White Board"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/login"
+        android:text="Teacher SignUp"
+        android:textColor="@color/back_color"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter Your Full Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_name"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/person"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/designation"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter Designation">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_designation"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/person"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/des"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Phone No">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_des"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/phone"
+            android:layout_height="wrap_content" />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Experience">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_experience"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/experience"
+            android:layout_height="wrap_content" />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:id="@+id/signup_teacher_next"
+        android:backgroundTint="@color/back_color"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+
+
+
+</LinearLayout>
