@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
     LinearLayout lnr_xy;
     ArrayList<DrawingView> lstDrawing;
     ArrayList<Paint> savedPaints;
-    ArrayList<Paths> savedPaths;
+    ArrayList<Integer> CountsPaths;
+    ArrayList<Integer> CountsPaint;
+    ArrayList<Path> savedPaths;
     LinearLayout lnr_colorPicker;
 
     boolean showflag = false;
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
         lstDrawing = new ArrayList<>();
         savedPaints = new ArrayList<>();
         savedPaths = new ArrayList<>();
+        CountsPaths = new ArrayList<>();
+        CountsPaint = new ArrayList<>();
         /*NEW CODE ADDED FOR NEXT AND BACK*/
         lnr_colorPicker = findViewById(R.id.lnr_colorPicker);
         lnr_xy = findViewById(R.id.lnr_xy);
@@ -116,18 +120,22 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
     private void loadPreviousBitmap() {
         try {
             if (_currentSlide == savedPaints.size()) {
-                savedPaths.add(new Paths(_currentSlide,drawingView.paths));
-                savedPaints.add(new Paint(drawingView.paint));
+                if(!drawingView.paths.isEmpty()) {
+                    savedPaths.addAll(drawingView.paths);
+                    CountsPaths.add(_currentSlide, drawingView.paths.size());
+                    savedPaints.add(new Paint(drawingView.paint));
+                    CountsPaint.add(_currentSlide, savedPaints.size());
+                }
                 drawingView.clear();
-//                drawingView.invalidate();
+                drawingView.invalidate();
             }
             if (_currentSlide != 0) {
                 _currentSlide--;
                 drawingView.clear();
-//                drawingView.invalidate();
-                drawingView.paths = new ArrayList<>(savedPaths.get(_currentSlide).path);//.subList(_currentSlide, _currentSlide + 1));
-                drawingView.paints = new ArrayList<>(savedPaints.subList(_currentSlide, _currentSlide + 1));
                 drawingView.invalidate();
+                drawingView.paths = new ArrayList<>(savedPaths.subList(_currentSlide==0? 0: CountsPaths.get(_currentSlide-1),CountsPaths.get(_currentSlide)));//_currentSlide,_currentSlide + 1));//
+                drawingView.paints = new ArrayList<>(savedPaints.subList(_currentSlide==0? 0: CountsPaint.get(_currentSlide-1),CountsPaint.get(_currentSlide)));//_currentSlide, _currentSlide + 1));
+//                drawingView.invalidate();
                 updateText();
             }
 
@@ -143,10 +151,10 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
             if (_currentSlide == savedPaints.size()) {
                 if (!drawingView.paths.isEmpty()) {
 
-                    savedPaths.add(new Paths(_currentSlide,drawingView.paths));
-//                    drawingView.p
+                    savedPaths.addAll(drawingView.paths);
+                    CountsPaths.add(_currentSlide, drawingView.paths.size());
                     savedPaints.add(new Paint(drawingView.paint));
-
+                    CountsPaint.add(_currentSlide, savedPaints.size());
                     drawingView.clear();
                     _currentSlide++;
                     updateText();
@@ -158,9 +166,9 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
             } else {
                 _currentSlide++;
                 drawingView.clear();
-                drawingView.paths = new ArrayList<>(savedPaths.get(_currentSlide).path);//.subList(_currentSlide, _currentSlide + 1));
-                drawingView.paints = new ArrayList<>(savedPaints.subList(_currentSlide, _currentSlide + 1));
-                drawingView.invalidate();
+                drawingView.paths = new ArrayList<>(savedPaths.subList(_currentSlide==0? 0: CountsPaths.get(_currentSlide-1),CountsPaths.get(_currentSlide)));//_currentSlide,_currentSlide + 1));//
+                drawingView.paints = new ArrayList<>(savedPaints.subList(_currentSlide==0? 0: CountsPaint.get(_currentSlide-1),CountsPaint.get(_currentSlide)));//_currentSlide, _currentSlide + 1));
+//                drawingView.invalidate();
                 updateText();
             }
         } catch (Exception ex) {
@@ -322,6 +330,7 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
     @Override
     public void onDrawingStartedCompleted(String drawingResult) {
         tv_Started_xy.setText(drawingResult);
+
     }
 
     @Override

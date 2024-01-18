@@ -10,6 +10,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +24,9 @@ public class DrawingView extends View {
     private Bitmap bitmap;
     public Canvas canvas;
     public ArrayList<Path> paths;
-    private Stack<Path> undonePaths;
+    public Stack<Path> undonePaths;
     public ArrayList<Paint> paints;
-    private Stack<Paint> undonePaints;
+    public Stack<Paint> undonePaints;
     private int currentColor;
     private int strokeWidth;
     private List<Bitmap> savedBitmaps;
@@ -120,10 +122,12 @@ public class DrawingView extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
-        for (int i = 0; i < paths.size(); i++) {
-            canvas.drawPath(paths.get(i), paints.get(i));
+        for (int i = 0; i < paints.size(); i++) {
+            for (int j = 0; j < paths.size(); j++) {
+                canvas.drawPath(paths.get(i), paints.get(i));
+            }
         }
     }
 
