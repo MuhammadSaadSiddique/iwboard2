@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
         img_save.setOnClickListener(v -> saveDrawing());
         drawingView.setDrawingViewListener(this);
     }
-
+//yehi tu
     int _currentSlide = 0;
 
     private void loadPreviousBitmap() {
@@ -126,12 +126,12 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
                     savedPaints.add(new Paint(drawingView.paint));
                     CountsPaint.add(_currentSlide, savedPaints.size());
                 }
-                drawingView.clear();
+                //drawingView.clear();
                 drawingView.invalidate();
             }
             if (_currentSlide != 0) {
                 _currentSlide--;
-                drawingView.clear();
+//                drawingView.clear();
                 drawingView.invalidate();
                 drawingView.paths = new ArrayList<>(savedPaths.subList(_currentSlide==0? 0: CountsPaths.get(_currentSlide-1),CountsPaths.get(_currentSlide)));//_currentSlide,_currentSlide + 1));//
                 drawingView.paints = new ArrayList<>(savedPaints.subList(_currentSlide==0? 0: CountsPaint.get(_currentSlide-1),CountsPaint.get(_currentSlide)));//_currentSlide, _currentSlide + 1));
@@ -155,17 +155,19 @@ public class MainActivity extends AppCompatActivity implements DrawingView.Drawi
                     CountsPaths.add(_currentSlide, drawingView.paths.size());
                     savedPaints.add(new Paint(drawingView.paint));
                     CountsPaint.add(_currentSlide, savedPaints.size());
-                    drawingView.clear();
+//                    drawingView.clear();
                     _currentSlide++;
                     updateText();
                 }
 
             } else if (savedPaints.size() - _currentSlide == 1) {
                 Toast.makeText(this, "Current: " + _currentSlide + "| Total:" + savedPaths.size(), Toast.LENGTH_SHORT).show();
-                drawingView.clear();
+                savedPaints.clear();
+                savedPaths.clear();
+//                drawingView.clear();
             } else {
                 _currentSlide++;
-                drawingView.clear();
+//                drawingView.clear();
                 drawingView.paths = new ArrayList<>(savedPaths.subList(_currentSlide==0? 0: CountsPaths.get(_currentSlide-1),CountsPaths.get(_currentSlide)));//_currentSlide,_currentSlide + 1));//
                 drawingView.paints = new ArrayList<>(savedPaints.subList(_currentSlide==0? 0: CountsPaint.get(_currentSlide-1),CountsPaint.get(_currentSlide)));//_currentSlide, _currentSlide + 1));
 //                drawingView.invalidate();

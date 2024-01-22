@@ -126,9 +126,12 @@ public class DrawingView extends View {
         super.onDraw(canvas);
         for (int i = 0; i < paints.size(); i++) {
             for (int j = 0; j < paths.size(); j++) {
-                canvas.drawPath(paths.get(i), paints.get(i));
+                canvas.drawPath(paths.get(j), paints.get(i));
             }
         }
+//        canvas.notify(); yahan pe load hota hai
+//3rd nhi arhaha
+
     }
 
 
